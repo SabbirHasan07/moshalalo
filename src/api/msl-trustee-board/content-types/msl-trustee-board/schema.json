@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "msl_trustee_boards",
+  "info": {
+    "singularName": "msl-trustee-board",
+    "pluralName": "msl-trustee-boards",
+    "displayName": "MSL -Trustee- board"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "designation": {
+      "type": "string",
+      "required": true
+    },
+    "details": {
+      "type": "text"
+    }
+  }
+}

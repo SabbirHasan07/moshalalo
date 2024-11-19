@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contributors",
+  "info": {
+    "singularName": "contributor",
+    "pluralName": "contributors",
+    "displayName": "Contributor"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "designation": {
+      "type": "string",
+      "required": true
+    },
+    "details": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

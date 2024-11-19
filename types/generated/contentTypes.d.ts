@@ -436,6 +436,37 @@ export interface ApiCompletedProjectCompletedProject
   };
 }
 
+export interface ApiContributorContributor extends Struct.CollectionTypeSchema {
+  collectionName: 'contributors';
+  info: {
+    displayName: 'Contributor';
+    pluralName: 'contributors';
+    singularName: 'contributor';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    designation: Schema.Attribute.String & Schema.Attribute.Required;
+    details: Schema.Attribute.Text & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contributor.contributor'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   collectionName: 'events';
   info: {
@@ -471,6 +502,38 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiGeneralExecutiveGeneralExecutive
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'general_executives';
+  info: {
+    displayName: 'General-Executive';
+    pluralName: 'general-executives';
+    singularName: 'general-executive';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    designation: Schema.Attribute.String & Schema.Attribute.Required;
+    details: Schema.Attribute.Text & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::general-executive.general-executive'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiIlluminateHumanityIlluminateHumanity
   extends Struct.CollectionTypeSchema {
   collectionName: 'illuminate_humanities';
@@ -496,6 +559,70 @@ export interface ApiIlluminateHumanityIlluminateHumanity
     Projects: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     Supported: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMslTrusteeBoardMslTrusteeBoard
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'msl_trustee_boards';
+  info: {
+    displayName: 'MSL -Trustee- board';
+    pluralName: 'msl-trustee-boards';
+    singularName: 'msl-trustee-board';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    designation: Schema.Attribute.String & Schema.Attribute.Required;
+    details: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::msl-trustee-board.msl-trustee-board'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSeniorExecutiveSeniorExecutive
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'senior_executives';
+  info: {
+    displayName: 'Senior-Executive';
+    pluralName: 'senior-executives';
+    singularName: 'senior-executive';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String & Schema.Attribute.Required;
+    details: Schema.Attribute.Text & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::senior-executive.senior-executive'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1013,8 +1140,12 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::article.article': ApiArticleArticle;
       'api::completed-project.completed-project': ApiCompletedProjectCompletedProject;
+      'api::contributor.contributor': ApiContributorContributor;
       'api::event.event': ApiEventEvent;
+      'api::general-executive.general-executive': ApiGeneralExecutiveGeneralExecutive;
       'api::illuminate-humanity.illuminate-humanity': ApiIlluminateHumanityIlluminateHumanity;
+      'api::msl-trustee-board.msl-trustee-board': ApiMslTrusteeBoardMslTrusteeBoard;
+      'api::senior-executive.senior-executive': ApiSeniorExecutiveSeniorExecutive;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
