@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "illuminate_humanities",
+  "info": {
+    "singularName": "illuminate-humanity",
+    "pluralName": "illuminate-humanities",
+    "displayName": "illuminate-humanity"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Supported": {
+      "type": "integer",
+      "required": false,
+      "default": 0
+    },
+    "Operational": {
+      "type": "integer",
+      "default": 0
+    },
+    "Projects": {
+      "type": "integer"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "completed_projects",
+  "info": {
+    "singularName": "completed-project",
+    "pluralName": "completed-projects",
+    "displayName": "Completed-Project"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cover_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "amount_area": {
+      "type": "string"
+    },
+    "Date": {
+      "type": "date"
+    }
+  }
+}
