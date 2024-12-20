@@ -15,11 +15,14 @@
     "@strapi/plugin-users-permissions": "5.4.0",
     "@strapi/provider-upload-cloudinary": "^5.4.0",
     "@strapi/strapi": "5.4.0",
+    "@types/koa": "^2.15.0",
     "cloudinary": "^2.5.1",
     "pg": "8.8.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
+    "sslcommerz": "^1.7.0",
+    "strapi-plugin-slugify": "^2.3.8",
     "styled-components": "^6.0.0"
   },
   "devDependencies": {
