@@ -4,7 +4,8 @@
   "info": {
     "singularName": "msl-trustee-board",
     "pluralName": "msl-trustee-boards",
-    "displayName": "MSL -Trustee- board"
+    "displayName": "MSL -Trustee- board",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,17 +13,17 @@
   "pluginOptions": {},
   "attributes": {
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
-    "designation": {
+    "name": {
       "type": "string",
       "required": true
     },

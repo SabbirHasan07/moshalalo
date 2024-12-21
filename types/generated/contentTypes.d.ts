@@ -475,6 +475,7 @@ export interface ApiCompletedProjectCompletedProject
 export interface ApiContributorContributor extends Struct.CollectionTypeSchema {
   collectionName: 'contributors';
   info: {
+    description: '';
     displayName: 'Contributor';
     pluralName: 'contributors';
     singularName: 'contributor';
@@ -486,7 +487,6 @@ export interface ApiContributorContributor extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    designation: Schema.Attribute.String & Schema.Attribute.Required;
     details: Schema.Attribute.Text & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.Required;
@@ -496,6 +496,7 @@ export interface ApiContributorContributor extends Struct.CollectionTypeSchema {
       'api::contributor.contributor'
     > &
       Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -539,6 +540,7 @@ export interface ApiGeneralExecutiveGeneralExecutive
   extends Struct.CollectionTypeSchema {
   collectionName: 'general_executives';
   info: {
+    description: '';
     displayName: 'General-Executive';
     pluralName: 'general-executives';
     singularName: 'general-executive';
@@ -550,7 +552,6 @@ export interface ApiGeneralExecutiveGeneralExecutive
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    designation: Schema.Attribute.String & Schema.Attribute.Required;
     details: Schema.Attribute.Text & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.Required;
@@ -560,6 +561,7 @@ export interface ApiGeneralExecutiveGeneralExecutive
       'api::general-executive.general-executive'
     > &
       Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -602,6 +604,7 @@ export interface ApiMslTrusteeBoardMslTrusteeBoard
   extends Struct.CollectionTypeSchema {
   collectionName: 'msl_trustee_boards';
   info: {
+    description: '';
     displayName: 'MSL -Trustee- board';
     pluralName: 'msl-trustee-boards';
     singularName: 'msl-trustee-board';
@@ -613,7 +616,6 @@ export interface ApiMslTrusteeBoardMslTrusteeBoard
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    designation: Schema.Attribute.String & Schema.Attribute.Required;
     details: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.Required;
@@ -623,6 +625,7 @@ export interface ApiMslTrusteeBoardMslTrusteeBoard
       'api::msl-trustee-board.msl-trustee-board'
     > &
       Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -634,6 +637,7 @@ export interface ApiSeniorExecutiveSeniorExecutive
   extends Struct.CollectionTypeSchema {
   collectionName: 'senior_executives';
   info: {
+    description: '';
     displayName: 'Senior-Executive';
     pluralName: 'senior-executives';
     singularName: 'senior-executive';
@@ -645,7 +649,6 @@ export interface ApiSeniorExecutiveSeniorExecutive
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.String & Schema.Attribute.Required;
     details: Schema.Attribute.Text & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.Required;
@@ -655,6 +658,7 @@ export interface ApiSeniorExecutiveSeniorExecutive
       'api::senior-executive.senior-executive'
     > &
       Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
