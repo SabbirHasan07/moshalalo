@@ -1,7 +1,15 @@
-/**
- * completed-project controller
- */
+import { factories } from '@strapi/strapi';
 
-import { factories } from '@strapi/strapi'
+export default factories.createCoreController('api::completed-project.completed-project', ({ strapi }) => ({
+  async find(ctx) {
+    // Adding populate=* to populate all relations
+    ctx.query = {
+      ...ctx.query,
+      populate: '*',
+    };
 
-export default factories.createCoreController('api::completed-project.completed-project');
+    // Call the default core controller's find method
+    const { data, meta } = await super.find(ctx);
+    return { data, meta };
+  },
+}));

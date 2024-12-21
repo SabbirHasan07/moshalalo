@@ -35,6 +35,11 @@
       "type": "string",
       "maxLength": 20,
       "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
     }
   }
 }

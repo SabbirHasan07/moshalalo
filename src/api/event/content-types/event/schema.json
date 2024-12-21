@@ -31,16 +31,10 @@
       "type": "richtext",
       "required": true
     },
-    "images": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
     }
   }
 }

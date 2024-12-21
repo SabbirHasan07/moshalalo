@@ -401,6 +401,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 20;
       }>;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -522,14 +523,11 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.RichText & Schema.Attribute.Required;
-    images: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::event.event'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
