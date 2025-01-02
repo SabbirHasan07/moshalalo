@@ -5,11 +5,24 @@ export default factories.createCoreController('api::article.article', ({ strapi 
   // Custom `find` method to fetch all articles
   async find(ctx) {
     try {
-      const articles = await strapi.entityService.findMany('api::article.article', {
+      const articles: any = await strapi.entityService.findMany('api::article.article', {
         populate: '*', // Populate all relationships as needed
       });
 
-      return { data: articles }; // Return all articles
+      // Remove sensitive fields from createdBy and updatedBy for each article
+      articles.forEach((article) => {
+        if (article.createdBy) {
+          const { password, resetPasswordToken, ...createdByRest } = article.createdBy;
+          article.createdBy = createdByRest;
+        }
+
+        if (article.updatedBy) {
+          const { password, resetPasswordToken, ...updatedByRest } = article.updatedBy;
+          article.updatedBy = updatedByRest;
+        }
+      });
+
+      return { data: articles };
     } catch (error) {
       return ctx.internalServerError('An error occurred while fetching articles');
     }
@@ -24,17 +37,31 @@ export default factories.createCoreController('api::article.article', ({ strapi 
     }
 
     try {
-      // Query the database for the article with the specified slug
-      const articles = await strapi.entityService.findMany('api::article.article', {
-        filters: { slug }, // Filter articles by slug
-        populate: '*', // Populate all relationships as needed
+      const articles: any = await strapi.entityService.findMany('api::article.article', {
+        filters: { slug },
+        populate: '*',
       });
 
       if (articles.length === 0) {
         return ctx.notFound('Article not found');
       }
 
-      return { data: articles[0] }; // Return the first article by slug
+      const article = articles[0];
+
+      // Remove sensitive fields from createdBy and updatedBy for the article
+      if (article.createdBy) {
+        const { password, resetPasswordToken, ...createdByRest } = article.createdBy;
+        article.createdBy = createdByRest;
+      }
+
+      if (article.updatedBy) {
+        const { password, resetPasswordToken, ...updatedByRest } = article.updatedBy;
+        article.updatedBy = updatedByRest;
+      }
+
+      // Remove sensitive fields from the article object before returning
+      const { password, resetPasswordToken, ...rest } = article;
+      return { data: rest };
     } catch (error) {
       return ctx.internalServerError('An error occurred while fetching the article');
     }
