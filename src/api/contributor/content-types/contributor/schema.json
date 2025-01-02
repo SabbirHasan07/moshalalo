@@ -30,6 +30,9 @@
     "details": {
       "type": "text",
       "required": true
+    },
+    "Joining_Date": {
+      "type": "date"
     }
   }
 }

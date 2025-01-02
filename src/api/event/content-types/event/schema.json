@@ -35,6 +35,14 @@
       "type": "uid",
       "targetField": "title",
       "required": true
+    },
+    "Target_amount": {
+      "type": "decimal",
+      "required": true
+    },
+    "collected_amount": {
+      "type": "integer",
+      "required": true
     }
   }
 }
