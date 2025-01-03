@@ -4,7 +4,8 @@
   "info": {
     "singularName": "illuminate-humanity",
     "pluralName": "illuminate-humanities",
-    "displayName": "illuminate-humanity"
+    "displayName": "illuminate-humanity",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,7 +22,12 @@
       "default": 0
     },
     "Projects": {
-      "type": "integer"
+      "type": "integer",
+      "default": 0
+    },
+    "details": {
+      "type": "richtext",
+      "required": true
     }
   }
 }

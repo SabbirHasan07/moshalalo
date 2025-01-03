@@ -4,7 +4,8 @@
   "info": {
     "singularName": "completed-project",
     "pluralName": "completed-projects",
-    "displayName": "Completed-Project"
+    "displayName": "Completed-Project",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,14 +13,15 @@
   "pluginOptions": {},
   "attributes": {
     "cover_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "name": {
       "type": "string",
@@ -30,6 +32,10 @@
     },
     "Date": {
       "type": "date"
+    },
+    "details": {
+      "type": "richtext",
+      "required": true
     }
   }
 }

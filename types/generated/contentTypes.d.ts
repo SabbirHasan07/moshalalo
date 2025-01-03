@@ -442,6 +442,7 @@ export interface ApiCompletedProjectCompletedProject
   extends Struct.CollectionTypeSchema {
   collectionName: 'completed_projects';
   info: {
+    description: '';
     displayName: 'Completed-Project';
     pluralName: 'completed-projects';
     singularName: 'completed-project';
@@ -458,6 +459,7 @@ export interface ApiCompletedProjectCompletedProject
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Date: Schema.Attribute.Date;
+    details: Schema.Attribute.RichText & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -579,6 +581,7 @@ export interface ApiIlluminateHumanityIlluminateHumanity
   extends Struct.CollectionTypeSchema {
   collectionName: 'illuminate_humanities';
   info: {
+    description: '';
     displayName: 'illuminate-humanity';
     pluralName: 'illuminate-humanities';
     singularName: 'illuminate-humanity';
@@ -590,6 +593,7 @@ export interface ApiIlluminateHumanityIlluminateHumanity
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    details: Schema.Attribute.RichText & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -597,7 +601,7 @@ export interface ApiIlluminateHumanityIlluminateHumanity
     > &
       Schema.Attribute.Private;
     Operational: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
-    Projects: Schema.Attribute.Integer;
+    Projects: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     publishedAt: Schema.Attribute.DateTime;
     Supported: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     updatedAt: Schema.Attribute.DateTime;
