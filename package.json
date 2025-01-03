@@ -16,6 +16,7 @@
     "@strapi/provider-upload-cloudinary": "^5.4.0",
     "@strapi/strapi": "5.4.0",
     "@types/koa": "^2.15.0",
+    "better-sqlite3": "^11.7.0",
     "cloudinary": "^2.5.1",
     "lodash": "^4.17.21",
     "pg": "8.8.0",
