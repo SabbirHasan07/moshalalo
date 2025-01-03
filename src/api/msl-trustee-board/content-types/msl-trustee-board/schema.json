@@ -29,7 +29,7 @@
     },
     "designation": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "details": {
       "type": "text",
