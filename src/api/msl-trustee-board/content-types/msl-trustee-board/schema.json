@@ -27,8 +27,13 @@
       "type": "string",
       "required": true
     },
+    "designation": {
+      "type": "string",
+      "required": true
+    },
     "details": {
-      "type": "text"
+      "type": "text",
+      "required": true
     }
   }
 }

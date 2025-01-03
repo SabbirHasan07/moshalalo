@@ -34,6 +34,10 @@
     "Joining_Date": {
       "type": "date",
       "required": true
+    },
+    "designation": {
+      "type": "string",
+      "required": true
     }
   }
 }

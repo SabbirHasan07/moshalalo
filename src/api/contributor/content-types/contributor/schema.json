@@ -33,6 +33,10 @@
     },
     "Joining_Date": {
       "type": "date"
+    },
+    "designation": {
+      "type": "string",
+      "required": true
     }
   }
 }
