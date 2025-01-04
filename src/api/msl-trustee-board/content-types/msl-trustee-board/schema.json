@@ -34,6 +34,10 @@
     "details": {
       "type": "text",
       "required": true
+    },
+    "order": {
+      "type": "integer",
+      "required": true
     }
   }
 }
