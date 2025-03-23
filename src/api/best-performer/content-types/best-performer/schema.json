@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "best_performers",
+  "info": {
+    "singularName": "best-performer",
+    "pluralName": "best-performers",
+    "displayName": "best_performer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "designation": {
+      "type": "text"
+    },
+    "serial_number": {
+      "required": true,
+      "type": "integer"
+    }
+  }
+}

@@ -409,6 +409,39 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBestPerformerBestPerformer
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'best_performers';
+  info: {
+    displayName: 'best_performer';
+    pluralName: 'best-performers';
+    singularName: 'best-performer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    designation: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::best-performer.best-performer'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    serial_number: Schema.Attribute.Integer & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCarouselCarousel extends Struct.CollectionTypeSchema {
   collectionName: 'carousels';
   info: {
@@ -1268,6 +1301,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::article.article': ApiArticleArticle;
+      'api::best-performer.best-performer': ApiBestPerformerBestPerformer;
       'api::carousel.carousel': ApiCarouselCarousel;
       'api::completed-project.completed-project': ApiCompletedProjectCompletedProject;
       'api::contributor.contributor': ApiContributorContributor;
