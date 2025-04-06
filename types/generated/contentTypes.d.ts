@@ -372,8 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   collectionName: 'articles';
   info: {
-    description: '';
-    displayName: 'article';
+    displayName: 'Article';
     pluralName: 'articles';
     singularName: 'article';
   };
@@ -388,7 +387,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.RichText & Schema.Attribute.Required;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -396,12 +395,8 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    short_description: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 20;
-      }>;
-    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    short_description: Schema.Attribute.String & Schema.Attribute.Required;
+    slug: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -676,6 +671,35 @@ export interface ApiMslTrusteeBoardMslTrusteeBoard
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     order: Schema.Attribute.Integer & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPartnerPartner extends Struct.CollectionTypeSchema {
+  collectionName: 'partners';
+  info: {
+    displayName: 'Partner';
+    pluralName: 'partners';
+    singularName: 'partner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    link: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::partner.partner'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1309,6 +1333,7 @@ declare module '@strapi/strapi' {
       'api::general-executive.general-executive': ApiGeneralExecutiveGeneralExecutive;
       'api::illuminate-humanity.illuminate-humanity': ApiIlluminateHumanityIlluminateHumanity;
       'api::msl-trustee-board.msl-trustee-board': ApiMslTrusteeBoardMslTrusteeBoard;
+      'api::partner.partner': ApiPartnerPartner;
       'api::senior-executive.senior-executive': ApiSeniorExecutiveSeniorExecutive;
       'api::upcoming-event.upcoming-event': ApiUpcomingEventUpcomingEvent;
       'plugin::content-releases.release': PluginContentReleasesRelease;
