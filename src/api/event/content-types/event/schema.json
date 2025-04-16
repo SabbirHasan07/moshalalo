@@ -43,6 +43,11 @@
     "collected_amount": {
       "type": "integer",
       "required": true
+    },
+    "donate": {
+      "type": "boolean",
+      "default": true,
+      "required": true
     }
   }
 }

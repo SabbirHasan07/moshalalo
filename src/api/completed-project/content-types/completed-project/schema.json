@@ -36,6 +36,16 @@
     "details": {
       "type": "richtext",
       "required": true
+    },
+    "operational_area": {
+      "type": "enumeration",
+      "enum": [
+        "education",
+        "health",
+        "poverty Alleviation",
+        "empowerment"
+      ],
+      "required": true
     }
   }
 }
