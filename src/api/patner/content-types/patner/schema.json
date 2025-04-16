@@ -4,7 +4,8 @@
   "info": {
     "singularName": "patner",
     "pluralName": "patners",
-    "displayName": "patner"
+    "displayName": "partner",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,15 +13,15 @@
   "pluginOptions": {},
   "attributes": {
     "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
     "url": {
       "type": "string",

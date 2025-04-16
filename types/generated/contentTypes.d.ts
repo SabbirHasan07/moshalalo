@@ -681,7 +681,8 @@ export interface ApiMslTrusteeBoardMslTrusteeBoard
 export interface ApiPatnerPatner extends Struct.CollectionTypeSchema {
   collectionName: 'patners';
   info: {
-    displayName: 'patner';
+    description: '';
+    displayName: 'partner';
     pluralName: 'patners';
     singularName: 'patner';
   };
