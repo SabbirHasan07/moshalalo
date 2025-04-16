@@ -678,6 +678,36 @@ export interface ApiMslTrusteeBoardMslTrusteeBoard
   };
 }
 
+export interface ApiPatnerPatner extends Struct.CollectionTypeSchema {
+  collectionName: 'patners';
+  info: {
+    displayName: 'patner';
+    pluralName: 'patners';
+    singularName: 'patner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::patner.patner'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ApiSeniorExecutiveSeniorExecutive
   extends Struct.CollectionTypeSchema {
   collectionName: 'senior_executives';
@@ -1304,6 +1334,7 @@ declare module '@strapi/strapi' {
       'api::general-executive.general-executive': ApiGeneralExecutiveGeneralExecutive;
       'api::illuminate-humanity.illuminate-humanity': ApiIlluminateHumanityIlluminateHumanity;
       'api::msl-trustee-board.msl-trustee-board': ApiMslTrusteeBoardMslTrusteeBoard;
+      'api::patner.patner': ApiPatnerPatner;
       'api::senior-executive.senior-executive': ApiSeniorExecutiveSeniorExecutive;
       'api::upcoming-event.upcoming-event': ApiUpcomingEventUpcomingEvent;
       'plugin::content-releases.release': PluginContentReleasesRelease;
