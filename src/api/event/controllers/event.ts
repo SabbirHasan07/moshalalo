@@ -1,35 +1,34 @@
 import { factories } from '@strapi/strapi';
 
+export default factories.createCoreController('api::article.article', ({ strapi }) => ({
 
-
-export default factories.createCoreController('api::event.event', ({ strapi }) => ({
-  // Custom `find` method to fetch all events
+  // Custom `find` method to fetch all articles
   async find(ctx) {
     try {
-      const events: any = await strapi.entityService.findMany('api::event.event', {
-        populate: '*', // Populate all relationships as needed
+      const articles: any = await strapi.entityService.findMany('api::article.article', {
+        populate: '*',
       });
 
-      // Remove sensitive fields from createdBy and updatedBy for each event
-      events.forEach((event) => {
-        if (event.createdBy) {
-          const { password, resetPasswordToken, ...createdByRest } = event.createdBy;
-          event.createdBy = createdByRest;
+      // Remove sensitive fields from createdBy and updatedBy
+      articles.forEach((article) => {
+        if (article.createdBy) {
+          const { password, resetPasswordToken, ...createdByRest } = article.createdBy;
+          article.createdBy = createdByRest;
         }
 
-        if (event.updatedBy) {
-          const { password, resetPasswordToken, ...updatedByRest } = event.updatedBy;
-          event.updatedBy = updatedByRest;
+        if (article.updatedBy) {
+          const { password, resetPasswordToken, ...updatedByRest } = article.updatedBy;
+          article.updatedBy = updatedByRest;
         }
       });
 
-      return { data: events }; 
+      return { data: articles };
     } catch (error) {
-      return ctx.internalServerError('An error occurred while fetching events');
+      return ctx.internalServerError('An error occurred while fetching articles');
     }
   },
 
-  
+  // Custom `findOne` method using slug
   async findOne(ctx) {
     const { slug } = ctx.params;
 
@@ -38,33 +37,31 @@ export default factories.createCoreController('api::event.event', ({ strapi }) =
     }
 
     try {
-      const events: any = await strapi.entityService.findMany('api::event.event', {
+      const articles: any = await strapi.entityService.findMany('api::article.article', {
         filters: { slug },
         populate: '*',
       });
 
-      if (events.length === 0) {
-        return ctx.notFound('Event not found');
+      if (articles.length === 0) {
+        return ctx.notFound('Article not found');
       }
 
-      const event = events[0];
+      const article = articles[0];
 
-    
-      if (event.createdBy) {
-        const { password, resetPasswordToken, ...createdByRest } = event.createdBy;
-        event.createdBy = createdByRest;
+      if (article.createdBy) {
+        const { password, resetPasswordToken, ...createdByRest } = article.createdBy;
+        article.createdBy = createdByRest;
       }
 
-      if (event.updatedBy) {
-        const { password, resetPasswordToken, ...updatedByRest } = event.updatedBy;
-        event.updatedBy = updatedByRest;
+      if (article.updatedBy) {
+        const { password, resetPasswordToken, ...updatedByRest } = article.updatedBy;
+        article.updatedBy = updatedByRest;
       }
 
-     
-      const { password, resetPasswordToken, ...rest } = event;
-      return { data: rest }; 
+      const { password, resetPasswordToken, ...rest } = article;
+      return { data: rest };
     } catch (error) {
-      return ctx.internalServerError('An error occurred while fetching the event');
+      return ctx.internalServerError('An error occurred while fetching the article');
     }
   },
 }));
