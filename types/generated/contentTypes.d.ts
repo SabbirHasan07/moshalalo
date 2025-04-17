@@ -409,7 +409,8 @@ export interface ApiBestPerformerBestPerformer
   extends Struct.CollectionTypeSchema {
   collectionName: 'best_performers';
   info: {
-    displayName: 'best_performer';
+    description: '';
+    displayName: 'Best-Performer';
     pluralName: 'best-performers';
     singularName: 'best-performer';
   };
@@ -545,7 +546,7 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   collectionName: 'events';
   info: {
     description: '';
-    displayName: 'event';
+    displayName: 'Ongoing-Project';
     pluralName: 'events';
     singularName: 'event';
   };
@@ -618,7 +619,7 @@ export interface ApiIlluminateHumanityIlluminateHumanity
   collectionName: 'illuminate_humanities';
   info: {
     description: '';
-    displayName: 'illuminate-humanity';
+    displayName: 'About-Us';
     pluralName: 'illuminate-humanities';
     singularName: 'illuminate-humanity';
   };
@@ -656,7 +657,7 @@ export interface ApiMslTrusteeBoardMslTrusteeBoard
   collectionName: 'msl_trustee_boards';
   info: {
     description: '';
-    displayName: 'MSL -Trustee- board';
+    displayName: 'BOT';
     pluralName: 'msl-trustee-boards';
     singularName: 'msl-trustee-board';
   };

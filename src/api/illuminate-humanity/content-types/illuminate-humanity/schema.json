@@ -4,7 +4,7 @@
   "info": {
     "singularName": "illuminate-humanity",
     "pluralName": "illuminate-humanities",
-    "displayName": "illuminate-humanity",
+    "displayName": "About-Us",
     "description": ""
   },
   "options": {
@@ -30,15 +30,15 @@
       "required": true
     },
     "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true,
-      "required": true
+      ]
     }
   }
 }
